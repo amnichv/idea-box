@@ -1,7 +1,95 @@
 body {
+  width: 100%;
   height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fixed-container {
+  display: flex;
+  flex-direction: column;
+  background: #e5f3f2;
+  height: 50%;
+  width: 100%;
+}
+
+header {
+  font-size: 2.5em;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  padding: 25px 0 15px 0;
+}
+
+.idea-header {
+  color:#00A79d;
+}
+
+.box-header {
+  color: #6d6e71;
 }
 
 input {
-  display: block;
+  width: 90%;
+  font-size: 20px;
+  margin: 15px auto;
+  text-indent: 5px;
+  border: 1px solid lightgrey;
+}
+
+.title {
+  height: 10%;
+}
+
+.idea {
+  height: 25%;
+  vertical-align: top;
+}
+
+.save-btn {
+  width: 90%;
+  background-color: #00a79d;
+  color: #fff;
+  margin: 15px auto;
+  border: none;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 20px;
+  letter-spacing: .5px;
+}
+
+.save-btn:hover {
+  background: #045e55;
+}
+
+.idea-card-container {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 100%;
+}
+
+.new-card {
+  width: 90%;
+  height: 50%;
+  border-bottom: 1px solid #d1d3d4;
+}
+
+h1 {
+  color: #6d6e71;
+  font-family: 'Roboto Slab', serif;
+  font-size: 25px;
+}
+
+.quality {
+  color: #6d6e71;
+  font-family: 'Roboto Slab', serif;
+}
+
+.body-text {
+  font-family: 'Open Sans', sans-serif;
+  color: #939598;
+}
+
+.level {
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 10px;
 }

@@ -4,22 +4,26 @@
     <title>Idea Box</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <section class="fixed-container">
-      <header>ideabox</header>
+      <header><span class="idea-header">idea</span><span class="box-header">box</span></header>
       <input class="title" type="text" placeholder="Title">
       <input class="idea" type="text" placeholder="Body">
       <button class="save-btn">save</button>
     </section>
     <section class="idea-card-container">
-      <input class="search" type="search" placeholder="Search">
+      <input class="search" type="text" placeholder="Search">
       <div class="new-card">
         <h1>title goes here</h1>
+        <p class="body-text">body text goes here</p>
         <button class="delete"></button>
-        <button class="upVote"></button>
-        <button class="downVote"></button>
-        <p>quality</p>
+        <button class="up-vote"></button>
+        <button class="down-vote"></button>
+        <p class="quality">quality:<span class="level">swill</span></p>
       </div>
     </section>
   </body>
