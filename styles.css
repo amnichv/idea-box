@@ -93,3 +93,36 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   padding-left: 10px;
 }
+
+.delete {
+  background: url(assets/delete.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+.delete:hover {
+  background: url(assets/delete-hover.svg) no-repeat;
+}
+
+.up-vote {
+  background: url(assets/upvote.svg) no-repeat;
+}
+
+.up-vote:hover {
+  background: url(assets/upvote-hover.svg) no-repeat;
+}
+
+.down-vote {
+  background: url(assets/downvote.svg) no-repeat;
+}
+
+.down-vote:hover {
+  background: url(assets/downvote-hover.svg) no-repeat;
+}
+
+.image {
+  width: 30px;
+  height: 30px;
+  border: none;
+}
