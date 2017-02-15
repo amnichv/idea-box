@@ -58,7 +58,7 @@ $('.idea-card-container').prepend(displayHTML);
 
 
   $('.idea-card-container').on('click', '.delete', function () {
-    $(this).parent().parent().remove();
+    $(this).parent().remove();
     //need to remove from ideaArray
   })
 
@@ -73,6 +73,13 @@ function getIdeas() {
   return JSON.parse(getArray);
 }
 
+function clearTitle() {
+  $('.title').val('');
+}
+
+function clearBody() {
+  $('.body').val('');
+}
 
 $('.save-btn').on('click', function () {
   var $userTitle = $('.title').val();
@@ -87,6 +94,8 @@ $('.save-btn').on('click', function () {
   console.log(ideaArray);
   storeIdea();
   getIdeas();
+  clearTitle();
+  clearBody();
 })
 
 $( document ).ready(function() {
