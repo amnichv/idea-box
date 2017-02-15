@@ -39,7 +39,7 @@ input {
   height: 10%;
 }
 
-.idea {
+.body {
   height: 25%;
   vertical-align: top;
 }
@@ -69,24 +69,37 @@ input {
 
 .new-card {
   width: 90%;
-  height: 50%;
+  height: 70%;
   border-bottom: 1px solid #d1d3d4;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 h2 {
   color: #6d6e71;
   font-family: 'Roboto Slab', serif;
   font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 15px;
 }
 
 .quality {
   color: #6d6e71;
   font-family: 'Roboto Slab', serif;
+  margin: 5px 0 0 80px;
 }
 
 .body-text {
   font-family: 'Open Sans', sans-serif;
   color: #939598;
+  border: solid 1px black;
+  padding: 20px 0 20px 5px;
+  margin-top: 5px;
 }
 
 .level {
@@ -99,6 +112,9 @@ h2 {
   width: 30px;
   height: 30px;
   border: none;
+  float: right;
+  margin-right: 5px;
+  margin-top: -103px;
 }
 
 .delete:hover {
@@ -115,6 +131,7 @@ h2 {
 
 .down-vote {
   background: url(assets/downvote.svg) no-repeat;
+  margin-left: 20px;
 }
 
 .down-vote:hover {

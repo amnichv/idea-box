@@ -1,5 +1,4 @@
 var ideaArray = [];
-// var getArray ='' localStorage.getItem('')
 
 function Idea(title, body, id, quality) {
   this.id = id || Date.now();
@@ -8,9 +7,10 @@ function Idea(title, body, id, quality) {
   this.quality = quality || 'swill';
 }
 
-function displayIdea (aHa) {
+function displayIdea(aHa) {
   $('ideaArray').each(function(detailedCard) {
   });
+
   var displayHTML = '<div class="new-card" id="' + aHa.id + '">';
   displayHTML += '<h2 class="title">' + aHa.title + '</h2>';
   displayHTML += '<p class="body-text">' + aHa.body + '</p>';
@@ -19,6 +19,7 @@ function displayIdea (aHa) {
                  <button class="down-vote image"></button>`;
   displayHTML += '<p class="quality">quality:<span class="level">' + aHa.quality + '</span></p></div>';
   console.log(displayHTML);
+
 
 $('.idea-card-container').prepend(displayHTML);
 }
@@ -50,6 +51,7 @@ $('.idea-card-container').prepend(displayHTML);
       clickedIdea.quality = "plausible";
       $parentDiv.find('span').text("plausible");
     }
+    
     else if (clickedIdea.quality === "plausible") {
       clickedIdea.quality = "swill";
       $parentDiv.find('span').text("swill");
@@ -69,16 +71,18 @@ function storeIdea() {
 
 function getIdeas() {
   var getArray = localStorage.getItem('ideaArray');
-  console.log(JSON.parse(getArray));
-  return JSON.parse(getArray);
+  console.log(JSON.parse(getArray), 'hoy!');
+  var parsingArray = JSON.parse(getArray);
+  console.log(parsingArray);
+  displayIdea(parsingArray);
 }
+getIdeas();
 
-function clearTitle() {
-  $('.title').val('');
-}
 
-function clearBody() {
-  $('.body').val('');
+function clearIt() {
+  $('.title').val("");
+  $('.body').val("");
+
 }
 
 $('.save-btn').on('click', function () {
@@ -94,11 +98,10 @@ $('.save-btn').on('click', function () {
   console.log(ideaArray);
   storeIdea();
   getIdeas();
-  clearTitle();
-  clearBody();
+  clearIt();
 })
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-    getIdeas();
-});
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+//     getIdeas();
+// });
