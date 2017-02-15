@@ -1,15 +1,3 @@
-// var saveBtn = $('.save-btn')
-// var titleInput = $('.title')
-// console.log ('yay')
-// var ideaInput = $('.idea')
-// var newIdea = []
-
-// function Idea(id, title, body, quality) {
-//   this.id = id;
-//   this.title = title;
-//   this.body = body;
-//   this.quality = quality;
-// }
 var ideaArray = [];
 
 function Idea(title, body, id, quality) {
@@ -22,35 +10,59 @@ function Idea(title, body, id, quality) {
 function displayIdea(aHa) {
   $('ideaArray').each(function(detailedCard) {
   });
-  var displayHTML = '<div class="new-card">';
-  displayHTML += '<h1 class="title">' + aHa.title + '<h1>';
-  displayHTML += '<p class="body">' + aHa.body + '</p>';
+
+  var displayHTML = '<div class="new-card" id="' + aHa.id + '">';
+  displayHTML += '<h2 class="title">' + aHa.title + '</h2>';
+  displayHTML += '<p class="body-text">' + aHa.body + '</p>';
   displayHTML += `<button class="delete image"></button>
                  <button class="up-vote image"></button>
                  <button class="down-vote image"></button>`;
-  displayHTML += '<p class="quality">quality: ' + aHa.quality + '</p></div>';
+  displayHTML += '<p class="quality">quality:<span class="level">' + aHa.quality + '</span></p></div>';
+  console.log(displayHTML);
+
 
 $('.idea-card-container').prepend(displayHTML);
 }
 
+  $('.idea-card-container').on('click', '.up-vote', function (e) {
+    var $parentDiv = $(this).parent();
+    var ideaId = $parentDiv.attr('id');
+    var clickedIdea = ideaArray.find(function(a) {
+      return a.id == ideaId;
+    });
 
-function upQuality (id) {
-  id = parseInt(id);
-  //fill in
-  $('.up-vote').on('click', function () {
-    if (this.quality === "swill") {
-      this.quality = "plausible";
+    if (clickedIdea.quality === "swill") {
+      clickedIdea.quality = "plausible";
+      $parentDiv.find('span').text("plausible");
     }
-    if (this.quality === "plausible") {
-      this.quality = "genius";
+    else if (clickedIdea.quality === "plausible") {
+      clickedIdea.quality = "genius";
+      $parentDiv.find('span').text("genius");
+    }});
+
+  $('.idea-card-container').on('click', '.down-vote', function (e) {
+    var $parentDiv = $(this).parent();
+    var ideaId = $parentDiv.attr('id');
+    var clickedIdea = ideaArray.find(function(a) {
+      return a.id == ideaId;
+    });
+
+    if (clickedIdea.quality === "genius") {
+      clickedIdea.quality = "plausible";
+      $parentDiv.find('span').text("plausible");
     }
-    console.log(this.quality);
-  //if quality === swill
-  //quality should upgrade to plausible
-  //if quality === plausible
-  //upgrade quality to genius
+    
+    else if (clickedIdea.quality === "plausible") {
+      clickedIdea.quality = "swill";
+      $parentDiv.find('span').text("swill");
+    }
+  });
+
+
+  $('.idea-card-container').on('click', '.delete', function () {
+    $(this).parent().remove();
+    //need to remove from ideaArray
   })
-}
 
 function storeIdea() {
   localStorage.setItem('ideaArray', JSON.stringify(ideaArray));
@@ -66,9 +78,11 @@ function getIdeas() {
 }
 getIdeas();
 
+
 function clearIt() {
   $('.title').val("");
   $('.body').val("");
+
 }
 
 $('.save-btn').on('click', function () {
