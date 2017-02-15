@@ -11,7 +11,6 @@
 //   this.quality = quality;
 // }
 var ideaArray = [];
-// var getArray ='' localStorage.getItem('')
 
 function Idea(title, body, id, quality) {
   this.id = id || Date.now();
@@ -20,21 +19,23 @@ function Idea(title, body, id, quality) {
   this.quality = quality || 'swill';
 }
 
-function displayIdea (aHa) {
+function displayIdea(aHa) {
   $('ideaArray').each(function(detailedCard) {
   });
   var displayHTML = '<div class="new-card">';
-  displayHTML += '<h2 class="title">' + aHa.title + '<h2>';
+  displayHTML += '<h1 class="title">' + aHa.title + '<h1>';
   displayHTML += '<p class="body">' + aHa.body + '</p>';
   displayHTML += `<button class="delete image"></button>
                  <button class="up-vote image"></button>
                  <button class="down-vote image"></button>`;
-  displayHTML += '<p class="quality image">quality: ' + aHa.quality + '</p></div>';
+  displayHTML += '<p class="quality">quality: ' + aHa.quality + '</p></div>';
 
 $('.idea-card-container').prepend(displayHTML);
 }
 
-function upQuality () {
+
+function upQuality (id) {
+  id = parseInt(id);
   //fill in
   $('.up-vote').on('click', function () {
     if (this.quality === "swill") {
@@ -58,10 +59,17 @@ function storeIdea() {
 
 function getIdeas() {
   var getArray = localStorage.getItem('ideaArray');
-  console.log(JSON.parse(getArray));
-  return JSON.parse(getArray);
+  console.log(JSON.parse(getArray), 'hoy!');
+  var parsingArray = JSON.parse(getArray);
+  console.log(parsingArray);
+  displayIdea(parsingArray);
 }
+getIdeas();
 
+function clearIt() {
+  $('.title').val("");
+  $('.body').val("");
+}
 
 $('.save-btn').on('click', function () {
   var $userTitle = $('.title').val();
@@ -76,9 +84,10 @@ $('.save-btn').on('click', function () {
   console.log(ideaArray);
   storeIdea();
   getIdeas();
+  clearIt();
 })
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-    getIdeas();
-});
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+//     getIdeas();
+// });
