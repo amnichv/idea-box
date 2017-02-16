@@ -8,20 +8,20 @@ function Idea(title, body, id, quality) {
 }
 
 function displayIdea(aHa) {
-  $('ideaArray').each(function(detailedCard) {
-  });
-
-  var displayHTML = '<div class="new-card" id="' + aHa.id + '">';
-  displayHTML += '<h2 class="title">' + aHa.title + '</h2>';
-  displayHTML += '<p class="body-text">' + aHa.body + '</p>';
-  displayHTML += `<button class="delete image"></button>
-                 <button class="up-vote image"></button>
-                 <button class="down-vote image"></button>`;
-  displayHTML += '<p class="quality">quality:<span class="level">' + aHa.quality + '</span></p></div>';
-  console.log(displayHTML);
-
-
-$('.idea-card-container').prepend(displayHTML);
+    $('.idea-card-container').append(
+    `<div class="new-card" id=${aHa.id}>
+         <h1 class="title">  ${aHa.title}  </h1>
+         <p class="body">  ${aHa.body}  </p>
+         <button class="delete image"></button>
+                       <button class="up-vote image"></button>
+                       <button class="down-vote image"></button>
+         <p class="quality">
+           quality: <span class="level">  ${aHa.quality}  </span>
+         </p>
+         </div>`
+    );
+    console.log('aHa', aHa);
+  //});
 }
 
   $('.idea-card-container').on('click', '.up-vote', function (e) {
@@ -51,7 +51,7 @@ $('.idea-card-container').prepend(displayHTML);
       clickedIdea.quality = "plausible";
       $parentDiv.find('span').text("plausible");
     }
-    
+
     else if (clickedIdea.quality === "plausible") {
       clickedIdea.quality = "swill";
       $parentDiv.find('span').text("swill");
@@ -61,6 +61,11 @@ $('.idea-card-container').prepend(displayHTML);
 
   $('.idea-card-container').on('click', '.delete', function () {
     $(this).parent().remove();
+    // push all local storage items into the ideaArray
+    // grab the id attribute of the parent
+    // find the id inside of the ideaArray
+    // remove the Object that contains the matching id
+    console.log($(this).parent(id));
     //need to remove from ideaArray
   })
 
@@ -70,13 +75,21 @@ function storeIdea() {
 }
 
 function getIdeas() {
-  var getArray = localStorage.getItem('ideaArray');
-  console.log(JSON.parse(getArray), 'hoy!');
-  var parsingArray = JSON.parse(getArray);
-  console.log(parsingArray);
-  displayIdea(parsingArray);
+  ideaArray = JSON.parse(localStorage.getItem('ideaArray'));
+  console.log('parsingArray', parsingArray);
+
+  for (var i = 0; i < parsingArray.length; i++) {
+    console.log(parsingArray[i].title, parsingArray[i].body, parsingArray[i].id, parsingArray[i].quality)
+    displayIdea(parsingArray[i]);
+  }
+  // parsingArray.forEach((value, index, array) => {
+  //   console.log('value: ' + value, 'index: ' + index, 'array: ' +  array);
+  // })
+  console.log('ideaArray', ideaArray)
 }
+
 getIdeas();
+//displayIdea();
 
 
 function clearIt() {
@@ -93,8 +106,8 @@ $('.save-btn').on('click', function () {
 
   var aHa = new Idea($userTitle, $userBody);
   console.log(aHa);
-  displayIdea(aHa);
   ideaArray.unshift(aHa);
+  displayIdea(aHa);
   console.log(ideaArray);
   storeIdea();
   getIdeas();
