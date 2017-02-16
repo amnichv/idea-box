@@ -14,7 +14,7 @@ $( document ).ready(function() {
 // New Card to display idea
 
 function displayIdea(aHa) {
-    $('.idea-card-container').append(
+    $('.idea-card-container').prepend(
     `<div class="new-card" contenteditable="true" id=${aHa.id}>
         <button class="delete image"></button>
         <h1 class="title">${aHa.title}</h1>
