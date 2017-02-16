@@ -18,7 +18,7 @@ $( document ).ready(function() {
 
 function displayIdea(aHa) {
     $('.idea-card-container').append(
-    `<div class="new-card" id=${aHa.id}>
+    `<div class="new-card" contenteditable="true" id=${aHa.id}>
         <button class="delete image"></button>
         <h1 class="title">${aHa.title}</h1>
         <p class="body-text">${aHa.body}</p>
