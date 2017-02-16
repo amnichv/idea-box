@@ -155,49 +155,16 @@ h1 {
   border: none;
 }
 
-@media (min-width 599px) {
-    .title {
-      width: 850px;
-    }
-
-    .body {
-      width: 850px;
-      height: 48px;
-    }
-
-    .save-btn {
-      width: 850px;
-    }
-
-    .search {
-      width: 850px;
-    }
-}
-
-@media (min-width: 1026px) {
-    .title {
-      width: 70%;
-    }
-
-    .body {
-      width: 70%;
-      height: 48px;
-    }
-
-    .save-btn {
-      width: 70%;
-    }
-
-    .search {
-      width: 70%;
-      height: 48px;
-    }
-
+@media (min-width: 480px) {
+    .title,
+    .save-btn,
+    .search,
     .new-card {
       width: 70%;
     }
 
-    h1 {
-        margin: 0;
+    .body {
+      width: 70%;
+      height: 48px;
     }
 }
