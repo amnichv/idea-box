@@ -8,7 +8,6 @@ function Idea(title, body, id, quality) {
 }
 
 $( document ).ready(function() {
-    console.log( "ready!" );
     getIdeas();
 });
 
@@ -26,7 +25,7 @@ function displayIdea(aHa) {
         </p>
         </div>`
     );
-}
+ }
 
   $('.idea-card-container').on('click', '.up-vote', function (e) {
     var $parentDiv = $(this).parent();
@@ -43,7 +42,6 @@ function displayIdea(aHa) {
       clickedIdea.quality = "genius";
       $parentDiv.find('span').text("genius");
     }});
-
 
   $('.idea-card-container').on('click', '.down-vote', function (e) {
     var $parentDiv = $(this).parent();
@@ -83,7 +81,6 @@ function getIdeas() {
   parsingArray = JSON.parse(localStorage.getItem('ideaArray'));
 
   for (var i = 0; i < parsingArray.length; i++) {
-    console.log(parsingArray[i].title, parsingArray[i].body, parsingArray[i].id, parsingArray[i].quality);
     parsingArray[i].id = parseInt(parsingArray[i].id);
     ideaArray.push(parsingArray[i]);
     displayIdea(parsingArray[i]);
