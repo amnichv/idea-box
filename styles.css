@@ -103,7 +103,6 @@ h1 {
   margin: 5px 0px 20px 10px;
   color: #6d6e71;
   font-family: 'Roboto Slab', serif;
-
 }
 
 .body-text {
@@ -155,16 +154,47 @@ h1 {
   border: none;
 }
 
+
 @media (min-width: 480px) {
     .title,
     .save-btn,
     .search,
     .new-card {
-      width: 70%;
+      width: 300px;
     }
 
     .body {
-      width: 70%;
+      width: 300px;
+      height: 48px;
+    }
+}
+
+
+@media (min-width: 650px) {
+    .title,
+    .save-btn,
+    .search,
+    .new-card {
+      width: 500px;
+    }
+
+    .body {
+      width: 500px;
+      height: 48px;
+    }
+}
+
+
+@media (min-width: 770px) {
+    .title,
+    .save-btn,
+    .search,
+    .new-card {
+      width: 700px;
+    }
+
+    .body {
+      width: 700px;
       height: 48px;
     }
 }
