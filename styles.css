@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  font-size: 2.5em;
+  font-size: 40px;
   font-family: 'Roboto Slab', serif;
   text-align: center;
   padding: 25px 0 15px 0;
@@ -28,30 +28,35 @@ header {
 }
 
 input {
-  width: 90%;
+  width: 280px;
   font-size: 20px;
-  margin: 15px auto;
+  margin: auto;
   text-indent: 5px;
   border: 1px solid lightgrey;
 }
 
 .title {
-  height: 10%;
+  margin: 15px auto;
+  height: 40px;
+  overflow: visible;
+
 }
 
 .body {
-  height: 25%;
+  height: 90px;
   vertical-align: top;
+  overflow: visible;
 }
 
 .save-btn {
-  width: 90%;
+  width: 280px;
   background-color: #00a79d;
   color: #fff;
   margin: 15px auto;
   border: none;
   box-sizing: border-box;
   padding: 10px;
+  padding-bottom: 12px;
   font-size: 20px;
   letter-spacing: .5px;
 }
@@ -68,19 +73,20 @@ input {
 }
 
 .new-card {
-  width: 90%;
+  width: 280;
   height: 70%;
   border-bottom: 1px solid #d1d3d4;
-  padding-top: 10px;
-  padding-left: 15px;
+  margin: auto;
+  padding-top: 20px;
 }
 
 .search {
-  width: 100%;
+  width: 280px;
   margin-bottom: 25px;
+  margin-top: 15px;
 }
 
-h2 {
+h1 {
   color: #6d6e71;
   font-family: 'Roboto Slab', serif;
   font-size: 25px;
@@ -89,17 +95,19 @@ h2 {
 }
 
 .quality {
+  display: inline-block;
   color: #6d6e71;
   font-family: 'Roboto Slab', serif;
-  margin: 5px 0 0 80px;
+  margin: 5px 0px 20px 10px;
+
 }
 
 .body-text {
   font-family: 'Open Sans', sans-serif;
   color: #939598;
-  border: solid 1px black;
-  padding: 20px 0 20px 5px;
+  padding: 20px 5px 20px 5px;
   margin-top: 5px;
+  overflow: visible;
 }
 
 .level {
@@ -114,7 +122,7 @@ h2 {
   border: none;
   float: right;
   margin-right: 5px;
-  margin-top: -103px;
+  margin-top:
 }
 
 .delete:hover {
@@ -131,7 +139,7 @@ h2 {
 
 .down-vote {
   background: url(assets/downvote.svg) no-repeat;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .down-vote:hover {
@@ -142,4 +150,23 @@ h2 {
   width: 30px;
   height: 30px;
   border: none;
+}
+
+@media (min-width 1026px) {
+    .title {
+      width: 850px;
+    }
+
+    .body {
+      height: 48px;
+      width: 850px;
+    }
+
+    .save-btn {
+      width: 850px;
+    }
+
+    .search {
+      width: 850px;
+    }
 }
