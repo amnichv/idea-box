@@ -1,13 +1,11 @@
 var ideaArray = [];
 
-
 function Idea(title, body, id, quality) {
   this.id = id || Date.now();
   this.title = title;
   this.body = body;
   this.quality = quality || 'swill';
 }
-
 
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -29,7 +27,6 @@ function displayIdea(aHa) {
         </div>`
     );
 }
-
 
   $('.idea-card-container').on('click', '.up-vote', function (e) {
     var $parentDiv = $(this).parent();
@@ -65,7 +62,6 @@ function displayIdea(aHa) {
       $parentDiv.find('span').text("swill");
     }});
 
-
   $('.idea-card-container').on('click', '.delete', function () {
     var $parentDiv = $(this).parent();
     var ideaId = $parentDiv.attr('id');
@@ -79,11 +75,9 @@ function displayIdea(aHa) {
     storeIdea();
   });
 
-
 function storeIdea() {
   localStorage.setItem('ideaArray', JSON.stringify(ideaArray));
 }
-
 
 function getIdeas() {
   parsingArray = JSON.parse(localStorage.getItem('ideaArray'));
@@ -96,12 +90,10 @@ function getIdeas() {
   }
 }
 
-
 function clearIt() {
   $('.title').val("");
   $('.body').val("");
 }
-
 
 $('.save-btn').on('click', function () {
   var $userTitle = $('.title').val();
