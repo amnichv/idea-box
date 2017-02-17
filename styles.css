@@ -85,6 +85,8 @@ button:focus {
 }
 
 .search {
+  display: flex;
+  flex-direction: column;
   width: 280px;
   margin-bottom: 25px;
   margin-top: 15px;
